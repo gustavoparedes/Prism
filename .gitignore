@@ -1,0 +1,6 @@
+# Documentation only. Publishing software requires a separate explicit decision.
+*
+!*/
+!*.md
+!.gitignore
+!.gitattributes
