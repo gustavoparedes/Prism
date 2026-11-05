@@ -2,14 +2,37 @@
 
 [Inicio de documentación](../../README.es.md) | [English](../en/visual-tour.md)
 
-Capturas reales de Prism en Windows, tomadas el 5 de noviembre de 2026,
-con la evidencia pública de entrenamiento PC-MUS-001.
+Recorre una revisión desde la creación del caso hasta la navegación, los filtros
+y las anotaciones. Son capturas reales de Prism en Windows, tomadas el 5 de
+noviembre de 2026, con la evidencia pública de entrenamiento PC-MUS-001. Los
+labels y comentarios son ejemplos añadidos a una copia del caso para mostrar
+las funciones; no son conclusiones sobre la evidencia.
 
 ## Iniciar una revisión
 
 Crea un caso nuevo o abre un caso `.pri` existente.
 
 ![Pantalla de inicio de Prism](../../assets/screenshots/01-start.png)
+
+Elige **New Case** y selecciona el nombre y la ubicación del archivo `.pri`.
+
+![Crear un caso](../../assets/screenshots/04-new-case.png)
+
+## Elegir la evidencia
+
+Selecciona una imagen E01/EWF, una imagen lógica AD1, una carpeta o un sistema
+Windows vivo. Al elegir la evidencia comienza el procesamiento. Esta pantalla
+muestra la configuración; las vistas de revisión usan el caso del CTF ya procesado.
+
+![Fuentes de evidencia](../../assets/screenshots/05-evidence-sources.png)
+
+## Ubicar el caso y su procedencia
+
+Expande **Case information** para consultar la fuente, el inicio y fin del
+procesamiento, su duración y los recuentos. Puedes contraerlo para dar más
+espacio a la navegación por artefactos.
+
+![Información del caso](../../assets/screenshots/07-case-information.png)
 
 ## All Artifacts
 
@@ -18,6 +41,14 @@ navegación por artefactos y detalles seleccionables. Este caso contiene 5.201 a
 
 ![All Artifacts](../../assets/screenshots/02-all-artifacts.png)
 
+## Explorar una categoría
+
+Selecciona el encabezado de una categoría para reunir sus familias de artefactos
+en una tabla. Selecciona una familia para ver solo sus registros. Los recuentos
+ayudan a identificar qué artefactos contiene el caso.
+
+![Categoría Execution](../../assets/screenshots/08-execution-category.png)
+
 ## Prefetch
 
 Selecciona una familia de artefactos para revisar sus registros y los campos
@@ -25,3 +56,74 @@ extraídos del registro seleccionado en Details. Los timestamps conservan su
 significado y procedencia.
 
 ![Prefetch y detalles del registro](../../assets/screenshots/03-prefetch.png)
+
+Cada familia conserva sus campos propios. Por ejemplo, Shellbags presenta las
+referencias a carpetas y la procedencia del registro necesaria para interpretarlas.
+
+![Registros y detalles de Shellbags](../../assets/screenshots/20-shellbags.png)
+
+## Revisar el contexto del sistema
+
+System Profile reúne propiedades registradas del sistema operativo, identidad,
+cuentas, software, dispositivos y configuración. Cada registro conserva su fuente.
+
+![System Profile](../../assets/screenshots/17-system-profile.png)
+
+## Buscar entre los artefactos
+
+Busca por palabra clave o expresión regular, combinándolas con filtros de tiempo
+y labels. Los resultados se reúnen entre las distintas familias de artefactos.
+Selecciona uno para revisar sus campos y las coincidencias resaltadas en Details.
+
+![Búsqueda con expresión regular](../../assets/screenshots/14-search.png)
+
+Activa **Labels** para exigir además que el registro tenga un label. Esta vista
+combina rango de tiempo, expresión regular y un label guardado.
+
+![Filtros de tiempo, regex y labels combinados](../../assets/screenshots/19-label-search.png)
+
+## Usar los filtros de la grilla
+
+Los filtros por columna refinan la vista actual. El desplazamiento horizontal
+permite consultar más campos extraídos; los paneles de navegación, resultados
+y Details se pueden redimensionar.
+
+![Filtro nativo de la grilla](../../assets/screenshots/16-grid-filter.png)
+
+## Crear labels con color
+
+Haz clic derecho sobre un registro y abre **Manage labels...**. Define un nombre,
+una descripción y un color reutilizables durante la revisión. Estos labels de
+ejemplo describen el flujo de trabajo; no modifican el artefacto extraído.
+
+![Menú contextual del registro](../../assets/screenshots/09-annotation-menu.png)
+
+![Administrador de labels](../../assets/screenshots/10-label-manager.png)
+
+## Asignar un label
+
+El submenú **Add label** presenta los nombres y colores disponibles. Selecciona
+uno para anotar el registro. También puedes asignarlo a varios registros seleccionados.
+
+![Labels disponibles con sus colores](../../assets/screenshots/11-add-label.png)
+
+![Asignación a varios registros](../../assets/screenshots/18-bulk-labels.png)
+
+## Añadir un comentario
+
+Usa **Comments...** sobre un solo registro para dejar una observación, una
+salvedad o el siguiente paso. Los comentarios y labels se guardan en el caso
+y aparecen junto al registro revisado.
+
+![Editor de comentarios](../../assets/screenshots/12-comment.png)
+
+![Anotaciones guardadas](../../assets/screenshots/13-annotated-record.png)
+
+## Elegir la zona horaria de visualización
+
+El selector cambia cómo se muestran los instantes UTC conocidos. No reescribe
+los timestamps almacenados y aplica el offset mostrado como un offset fijo.
+Las fechas cuyo significado UTC no se conoce
+conservan su base temporal documentada.
+
+![Zona horaria de visualización](../../assets/screenshots/15-display-time-zone.png)

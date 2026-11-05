@@ -13,6 +13,22 @@ provenance. Investigations are stored in SQLite `.pri` case files.
 **[Explore the visual tour →](docs/en/visual-tour.md)** · Real application screenshots
 using the public PC-MUS-001 training evidence.
 
+| Create a case | Choose the evidence |
+| --- | --- |
+| ![Create a Prism case](assets/screenshots/04-new-case.png) | ![E01, AD1, folder and live sources](assets/screenshots/05-evidence-sources.png) |
+
+| Colored labels | Record comments |
+| --- | --- |
+| ![Manage labels](assets/screenshots/10-label-manager.png) | ![Comment editor](assets/screenshots/12-comment.png) |
+
+| Combined searches | System context |
+| --- | --- |
+| ![Time range and regex search](assets/screenshots/14-search.png) | ![System Profile](assets/screenshots/17-system-profile.png) |
+
+The [complete walkthrough](docs/en/visual-tour.md) also shows category views,
+artifact details, bulk labeling, saved annotations, column filters and the display
+time-zone selector. Demonstration annotations are made in a separate case copy.
+
 ## Repository status
 
 This is a **private documentation workspace** for the preparation of Prism 1.0.

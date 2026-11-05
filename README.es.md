@@ -13,6 +13,22 @@ guardan en archivos de caso SQLite con extensión `.pri`.
 **[Explorar el recorrido visual →](docs/es/visual-tour.md)** · Capturas reales de la aplicación
 con la evidencia pública de entrenamiento PC-MUS-001.
 
+| Crear un caso | Elegir la evidencia |
+| --- | --- |
+| ![Crear un caso de Prism](assets/screenshots/04-new-case.png) | ![Fuentes E01, AD1, carpeta y sistema vivo](assets/screenshots/05-evidence-sources.png) |
+
+| Labels con color | Comentarios por registro |
+| --- | --- |
+| ![Administrador de labels](assets/screenshots/10-label-manager.png) | ![Editor de comentarios](assets/screenshots/12-comment.png) |
+
+| Búsquedas combinadas | Contexto del sistema |
+| --- | --- |
+| ![Búsqueda por fechas y regex](assets/screenshots/14-search.png) | ![System Profile](assets/screenshots/17-system-profile.png) |
+
+El [recorrido completo](docs/es/visual-tour.md) también muestra categorías,
+detalles de artefactos, labels en lote, anotaciones guardadas, filtros de columna
+y el selector de zona horaria. Las anotaciones de ejemplo se hacen sobre una copia del caso.
+
 ## Estado del repositorio
 
 Este es un **espacio privado de documentación** para preparar Prism 1.0.
