@@ -8,6 +8,11 @@ Prism reads supported Windows evidence sources, extracts structured artifact
 records, and provides an interface for reviewing their contents, timestamps and
 provenance. Investigations are stored in SQLite `.pri` case files.
 
+[![Prism — All Artifacts](assets/screenshots/02-all-artifacts.png)](docs/en/visual-tour.md)
+
+**[Explore the visual tour →](docs/en/visual-tour.md)** · Real application screenshots
+using the public PC-MUS-001 training evidence.
+
 ## Repository status
 
 This is a **private documentation workspace** for the preparation of Prism 1.0.
@@ -35,6 +40,7 @@ of every artifact format or Windows configuration.
 
 | Topic | English | Español |
 |---|---|---|
+| Visual tour | [Explore the interface](docs/en/visual-tour.md) | [Recorrido visual](docs/es/visual-tour.md) |
 | Getting started | [Guide](docs/en/getting-started.md) | [Guía](docs/es/getting-started.md) |
 | Evidence sources | [Sources](docs/en/evidence-sources.md) | [Fuentes](docs/es/evidence-sources.md) |
 | Artifact coverage | [Catalog](docs/en/artifacts.md) | [Catálogo](docs/es/artifacts.md) |

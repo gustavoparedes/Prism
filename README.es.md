@@ -8,6 +8,11 @@ Prism lee fuentes de evidencia Windows compatibles, extrae registros estructurad
 y permite revisar su contenido, timestamps y procedencia. Las investigaciones se
 guardan en archivos de caso SQLite con extensión `.pri`.
 
+[![Prism — All Artifacts](assets/screenshots/02-all-artifacts.png)](docs/es/visual-tour.md)
+
+**[Explorar el recorrido visual →](docs/es/visual-tour.md)** · Capturas reales de la aplicación
+con la evidencia pública de entrenamiento PC-MUS-001.
+
 ## Estado del repositorio
 
 Este es un **espacio privado de documentación** para preparar Prism 1.0.
@@ -36,6 +41,7 @@ cobertura completa de todos los formatos de artefactos o configuraciones Windows
 
 | Tema | Español | English |
 |---|---|---|
+| Recorrido visual | [Explorar la interfaz](docs/es/visual-tour.md) | [Visual tour](docs/en/visual-tour.md) |
 | Primeros pasos | [Guía](docs/es/getting-started.md) | [Guide](docs/en/getting-started.md) |
 | Fuentes de evidencia | [Fuentes](docs/es/evidence-sources.md) | [Sources](docs/en/evidence-sources.md) |
 | Cobertura de artefactos | [Catálogo](docs/es/artifacts.md) | [Catalog](docs/en/artifacts.md) |
