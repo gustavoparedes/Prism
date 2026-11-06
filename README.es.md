@@ -211,3 +211,14 @@ licencia apropiada con `PRISM_SYNCFUSION_LICENSE_KEY` o un archivo local
 Prism se distribuye bajo la [licencia GNU GPL v3.0](LICENSE). Las licencias y los avisos
 de las dependencias se conservan en [licenses](licenses) y
 [THIRD-PARTY-NOTICES.json](THIRD-PARTY-NOTICES.json).
+## Agradecimientos
+
+Prism se apoya en hombros de gigantes. Agradecemos a quienes comparten su trabajo, documentan los artefactos de Windows y hacen reproducible la investigación forense.
+
+- **Eric Zimmerman y los colaboradores de sus proyectos**, por Registry, Prefetch, JumpList, Lnk, AppCompatCache y sus bibliotecas de apoyo. Su trabajo aporta componentes fundamentales para leer artefactos forenses de Windows.
+- **Los colaboradores de DiscUtils**, por sus bibliotecas de sistemas de archivos, incluido el soporte de NTFS.
+- **Los colaboradores de libyal/libewf y zlib**, por las bibliotecas utilizadas para leer evidencias E01/EWF.
+- **Los colaboradores de SQLite, System.Data.SQLite y .NET/WPF**, por las bases de almacenamiento y de la aplicación, y **Syncfusion**, por los controles de grilla utilizados en la interfaz de revisión.
+- **NIST y la comunidad forense**, por las evidencias públicas de prueba, la documentación de formatos, la investigación y el conocimiento compartido que ayudan a validar y mejorar Prism.
+
+Gracias también a quienes prueban Prism, reportan problemas y ayudan a mejorar la herramienta. Los avisos y las licencias de todas las dependencias están disponibles en [THIRD-PARTY-NOTICES.json](THIRD-PARTY-NOTICES.json) y [licenses](licenses).
