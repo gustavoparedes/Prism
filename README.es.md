@@ -211,6 +211,6 @@ La UI utiliza controles Syncfusion. Para tus propias compilaciones, registra una
 licencia apropiada con `PRISM_SYNCFUSION_LICENSE_KEY` o un archivo local
 `syncfusion-license.txt`, excluido de Git. El repositorio no incluye archivos de activación.
 
-Prism se distribuye bajo la [licencia MIT](LICENSE). Las licencias y los avisos
+Prism se distribuye bajo la [licencia GNU GPL v3.0](LICENSE). Las licencias y los avisos
 de las dependencias se conservan en [licenses](licenses) y
 [THIRD-PARTY-NOTICES.json](THIRD-PARTY-NOTICES.json).
