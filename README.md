@@ -215,6 +215,7 @@ Prism stands on the shoulders of giants. We thank the authors and maintainers wh
 - **The DiscUtils contributors**, for their file-system libraries, including NTFS support.
 - **The libyal/libewf and zlib contributors**, for the libraries used to read E01/EWF evidence.
 - **The SQLite, System.Data.SQLite and .NET/WPF contributors**, for the storage and application foundations, and **Syncfusion**, for the grid controls used in the review interface.
+- **[Kevin Pagano — Stark4n6](https://www.stark4n6.com/)**, for the forensic write-ups used as references during Prism validation and for sharing his analysis with the community.
 - **NIST and the forensic community**, for public test evidence, format documentation, research and shared knowledge that help us validate and improve Prism.
 
 Our thanks also go to everyone who tests Prism, reports problems and helps improve the tool. The complete dependency notices and licenses are available in [THIRD-PARTY-NOTICES.json](THIRD-PARTY-NOTICES.json) and [licenses](licenses).
