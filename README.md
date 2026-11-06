@@ -48,7 +48,7 @@ record must be interpreted with its timestamp meaning and original source.
 
 ## Getting started
 
-Keep the complete portable application folder together and start `Prism.Wpf.exe`.
+Keep the complete portable application folder together and start `Prism.exe`.
 Use an elevated process for live acquisition. The following walkthrough shows
 **19 real screenshots** using the public PC-MUS-001 training evidence. Example
 labels and comments were added to a separate review copy; they are demonstration

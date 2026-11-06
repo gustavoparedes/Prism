@@ -48,7 +48,7 @@ Interpreta cada registro junto con el significado de su timestamp y su fuente.
 
 ## Primeros pasos
 
-Conserva completa la carpeta portable y abre `Prism.Wpf.exe`. Para adquisición
+Conserva completa la carpeta portable y abre `Prism.exe`. Para adquisición
 live, ejecútalo con privilegios de administrador. El recorrido presenta **19
 capturas reales** con la evidencia pública de entrenamiento PC-MUS-001. Los
 labels y comentarios de ejemplo se añadieron a una copia del caso para mostrar

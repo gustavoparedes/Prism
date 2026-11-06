@@ -11,7 +11,7 @@ public partial class App : WpfApplication
     public App()
     {
         var icon = System.Windows.Media.Imaging.BitmapFrame.Create(
-            new Uri("pack://application:,,,/Prism.Wpf;component/Assets/prism.ico"));
+            new Uri("pack://application:,,,/Prism;component/Assets/prism.ico"));
         icon.Freeze();
         System.Windows.EventManager.RegisterClassHandler(typeof(System.Windows.Window),
             System.Windows.FrameworkElement.LoadedEvent,

@@ -2480,7 +2480,7 @@ internal sealed class StartDialog : Window
             Height = 40,
             VerticalAlignment = VerticalAlignment.Top,
             Source = new System.Windows.Media.Imaging.BitmapImage(
-                new Uri("pack://application:,,,/Prism.Wpf;component/Assets/prism.png"))
+                new Uri("pack://application:,,,/Prism;component/Assets/prism.png"))
         };
         hero.Children.Add(logo);
 
