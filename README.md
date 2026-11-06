@@ -10,9 +10,6 @@ Windows systems**. Review records in one workspace, follow their timestamps and
 sources, and organize findings with colored labels and comments. Cases are stored
 in SQLite `.pri` files.
 
-> **Private preview · Version 1.0 preparation.** This repository contains the
-> README, Prism source code and prepared binaries. It remains private during review.
-
 **Windows package:** [Releases](https://github.com/gustavoparedes/Prism/releases). Keep the complete extracted application folder together.
 
 ![Prism — All Artifacts](assets/screenshots/02-all-artifacts.png)

@@ -10,9 +10,6 @@ carpetas y sistemas Windows vivos**. Permite revisar los registros, sus timestam
 y su procedencia, y organizar hallazgos con labels de color y comentarios. Los
 casos se guardan en archivos SQLite `.pri`.
 
-> **Vista previa privada · Preparación de la versión 1.0.** Este repositorio contiene
-> el README, los fuentes de Prism y los binarios preparados. Sigue privado durante la revisión.
-
 **Paquete para Windows:** [Releases](https://github.com/gustavoparedes/Prism/releases). Conserva completa la carpeta extraída de la aplicación.
 
 ![Prism — All Artifacts](assets/screenshots/02-all-artifacts.png)
