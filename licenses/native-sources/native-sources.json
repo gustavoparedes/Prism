@@ -1,0 +1,18 @@
+[
+  {
+    "name": "libewf",
+    "reportedDllVersion": "20140816",
+    "upstreamSourceURL": "https://github.com/libyal/libewf-legacy/releases/download/20140816/libewf-20140816.tar.gz",
+    "file": "libewf-20140816.tar.gz",
+    "sha256": "6b2d078fb3861679ba83942fea51e9e6029c37ec2ea0c37f5744256d6f7025a9",
+    "bytes": 2380430
+  },
+  {
+    "name": "zlib",
+    "reportedDllVersion": "1.3.1",
+    "upstreamSourceURL": "https://zlib.net/fossils/zlib-1.3.1.tar.gz",
+    "file": "zlib-1.3.1.tar.gz",
+    "sha256": "9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23",
+    "bytes": 1512791
+  }
+]

@@ -1,0 +1,300 @@
+<Window x:Class="Prism.Wpf.MainWindow"
+        x:Name="RootWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Prism.Wpf"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Prism"
+        FontSize="14"
+        MinHeight="720"
+        MinWidth="1180"
+        Height="780"
+        Width="1320"
+        Background="#F4F6F8"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:NavigationHeaderWidthConverter x:Key="NavigationHeaderWidth" />
+        <local:SearchInputWidthConverter x:Key="SearchInputWidth" />
+        <SolidColorBrush x:Key="PrismBlue" Color="#1F5C8F" />
+        <SolidColorBrush x:Key="PrismBlueDark" Color="#173E62" />
+        <SolidColorBrush x:Key="PanelBorder" Color="#D8DEE6" />
+        <SolidColorBrush x:Key="MutedText" Color="#667085" />
+
+        <Style TargetType="Button">
+            <Setter Property="MinHeight" Value="32" />
+            <Setter Property="Padding" Value="12,5" />
+            <Setter Property="BorderBrush" Value="#CBD5E1" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="#1F2937" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+
+        <Style x:Key="PrimaryButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Background" Value="{StaticResource PrismBlue}" />
+            <Setter Property="BorderBrush" Value="{StaticResource PrismBlue}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+
+        <Style x:Key="SectionHeader" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="{StaticResource MutedText}" />
+            <Setter Property="Margin" Value="0,16,0,7" />
+        </Style>
+
+        <Style x:Key="ArtifactNavButton" TargetType="Button">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="#E5EAF0" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="8,6" />
+            <Setter Property="Margin" Value="0,0,0,4" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="MinHeight" Value="30" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                    <Setter Property="Background" Value="#E8F1F8" />
+                    <Setter Property="BorderBrush" Value="{StaticResource PrismBlue}" />
+                    <Setter Property="BorderThickness" Value="2" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="WorkspaceRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" x:Name="MainWorkspace">
+            <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="NavigationColumn" Width="285" MinWidth="240" MaxWidth="600" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition x:Name="ResultsColumn" Width="*" MinWidth="300" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition x:Name="DetailsColumn" Width="390" MinWidth="330" />
+            </Grid.ColumnDefinitions>
+
+            <Border x:Name="NavigationPanel" Grid.Column="0" Grid.RowSpan="2" Background="#FAFBFC" BorderBrush="{StaticResource PanelBorder}" BorderThickness="0,0,1,0">
+                <DockPanel Margin="14">
+                    <StackPanel DockPanel.Dock="Top">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Width="30" Height="30" Source="/Prism.Wpf;component/Assets/prism.png" />
+                            <StackPanel Margin="9,0,0,0">
+                                <TextBlock Text="Prism" FontSize="18" FontWeight="SemiBold" Foreground="#111827" />
+                                <TextBlock Text="Windows artifacts" Foreground="{StaticResource MutedText}" />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <Button x:Name="NewOpenButton" Content="{x:Static local:UiText.NewOpen}" Margin="0,14,0,0" Style="{StaticResource PrimaryButton}" Click="ShowStartDialog_Click" />
+                        <Button x:Name="DisplayOffsetButton" Margin="0,8,0,0" Click="DisplayOffset_Click" />
+
+                        <Expander x:Name="CaseInfoExpander" Header="{x:Static local:UiText.CaseInformation}" IsExpanded="False" Margin="0,12,0,0">
+                            <StackPanel Margin="0,8,0,0">
+                                <TextBlock Text="{x:Static local:UiText.Case}" Style="{StaticResource SectionHeader}" Margin="0,0,0,5" />
+                                <TextBlock x:Name="CasePathText" Text="{x:Static local:UiText.NotSelected}" TextWrapping="Wrap" Foreground="#374151" />
+
+                                <TextBlock Text="{x:Static local:UiText.Source}" Style="{StaticResource SectionHeader}" />
+                                <TextBlock x:Name="SourcePathText" Text="{x:Static local:UiText.NotSelected}" TextWrapping="Wrap" Foreground="#374151" />
+                                <Button Content="{x:Static local:UiText.ProcessingLog}" Margin="0,8,0,0" Click="ProcessingLog_Click" />
+
+                                <Grid Margin="0,14,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="{x:Static local:UiText.Registry}" Foreground="{StaticResource MutedText}" />
+                                        <TextBlock x:Name="RegistryCountText" Text="0" FontSize="22" FontWeight="SemiBold" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1">
+                                        <TextBlock Text="{x:Static local:UiText.File}" Foreground="{StaticResource MutedText}" />
+                                        <TextBlock x:Name="LocalCountText" Text="0" FontSize="22" FontWeight="SemiBold" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Expander>
+                        <Button x:Name="AllArtifactsButton" Content="{x:Static local:UiText.AllArtifacts}" Margin="0,10,0,0" FontWeight="SemiBold" Click="AllArtifacts_Click" />
+                    </StackPanel>
+
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
+                        <ItemsControl ItemsSource="{Binding ArtifactGroups}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Expander IsExpanded="True" Margin="0,10,0,0" HorizontalContentAlignment="Stretch">
+                                        <Expander.Header>
+                                            <Button Style="{StaticResource ArtifactNavButton}" Click="ArtifactGroup_Click" ToolTip="Show all artifacts in this category" Padding="4,5" Margin="0" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Expander}, Converter={StaticResource NavigationHeaderWidth}}">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                                    <TextBlock Text="{Binding Name}" FontSize="14" FontWeight="SemiBold" Foreground="{StaticResource PrismBlueDark}" TextWrapping="Wrap" Margin="0,0,8,0" VerticalAlignment="Center" />
+                                                    <TextBlock Grid.Column="1" Text="{Binding CountText}" FontSize="12" VerticalAlignment="Center">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Foreground" Value="{StaticResource PrismBlueDark}" />
+                                                                <Setter Property="FontWeight" Value="SemiBold" />
+                                                                <Style.Triggers><DataTrigger Binding="{Binding HitCount}" Value="0"><Setter Property="Foreground" Value="{StaticResource MutedText}" /><Setter Property="FontWeight" Value="Normal" /></DataTrigger></Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </Grid>
+                                            </Button>
+                                        </Expander.Header>
+                                        <ItemsControl ItemsSource="{Binding Items}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Button Style="{StaticResource ArtifactNavButton}" ToolTip="{Binding Description}" Click="ArtifactNav_Click">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*" />
+                                                                <ColumnDefinition Width="Auto" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <TextBlock Text="{Binding Name}" Foreground="#1F2937" TextWrapping="Wrap" Margin="0,0,8,0" />
+                                                            <TextBlock Grid.Column="1" Text="{Binding CountText}" FontSize="13" VerticalAlignment="Center">
+                                                                <TextBlock.Style>
+                                                                    <Style TargetType="TextBlock">
+                                                                        <Setter Property="Foreground" Value="{StaticResource PrismBlueDark}" />
+                                                                        <Setter Property="FontWeight" Value="SemiBold" />
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding HitCount}" Value="0">
+                                                                                <Setter Property="Foreground" Value="{StaticResource MutedText}" />
+                                                                                <Setter Property="FontWeight" Value="Normal" />
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </TextBlock.Style>
+                                                            </TextBlock>
+                                                        </Grid>
+                                                    </Button>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Expander>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </DockPanel>
+            </Border>
+
+                    <ScrollViewer x:Name="SearchToolbar" Background="White" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                    <Grid Margin="12,8" MinWidth="840" Width="{Binding ViewportWidth, ElementName=SearchToolbar, Converter={StaticResource NavigationHeaderWidth}, ConverterParameter=24}">
+                        <Grid.RowDefinitions><RowDefinition Height="36" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+<Grid x:Name="SearchControlsRow" Grid.Row="0" HorizontalAlignment="Right">
+<Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="{Binding ViewportWidth, ElementName=SearchToolbar, Converter={StaticResource SearchInputWidth}}" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="From" Grid.Column="0" Margin="0,0,6,0" VerticalAlignment="Center" ToolTip="Start date/time" />
+                        <TextBox x:Name="SearchFromBox" Grid.Column="1" Height="30" VerticalContentAlignment="Center" Padding="7,0" IsReadOnly="True" Cursor="Hand" ToolTip="Choose start date and time" PreviewMouseLeftButtonDown="SearchDate_PreviewMouseLeftButtonDown" PreviewKeyDown="SearchDate_PreviewKeyDown" />
+                        <TextBlock Text="To" Grid.Column="2" Margin="8,0,6,0" VerticalAlignment="Center" ToolTip="End date/time" />
+                        <TextBox x:Name="SearchToBox" Grid.Column="3" Height="30" VerticalContentAlignment="Center" Padding="7,0" IsReadOnly="True" Cursor="Hand" ToolTip="Choose end date and time" PreviewMouseLeftButtonDown="SearchDate_PreviewMouseLeftButtonDown" PreviewKeyDown="SearchDate_PreviewKeyDown" />
+                        <CheckBox x:Name="TimeFilterCheckBox" Grid.Column="4" Content="Time" Margin="8,0,0,0" VerticalAlignment="Center" />
+                        <CheckBox x:Name="RegexSearchCheckBox" Grid.Column="5" Content="RegEx" Margin="8,0,0,0" VerticalAlignment="Center" />
+                        <CheckBox x:Name="LabelsFilterCheckBox" Grid.Column="6" Content="Labels" Margin="8,0,0,0" VerticalAlignment="Center" />
+                        <TextBox x:Name="SearchBox" Grid.Column="7" Height="30" MinWidth="120" Margin="8,0,0,0" VerticalContentAlignment="Center" Padding="7,0" ToolTip="Keyword or regular expression" KeyDown="SearchBox_KeyDown" />
+                        <Button x:Name="SearchActionButton" Grid.Column="8" Content="Search" MinWidth="66" Height="32" Padding="8,3" Margin="8,0,0,0" Click="Search_Click" />
+                        <Button x:Name="ClearSearchButton" Grid.Column="9" Content="Clear" MinWidth="58" Height="32" Padding="8,3" Margin="8,0,0,0" Click="ClearSearch_Click" />
+                        </Grid>
+<TextBlock x:Name="ResultsTitleText" Grid.Row="1" Grid.ColumnSpan="10" Text="{x:Static local:UiText.Results}" FontSize="16" FontWeight="SemiBold" Foreground="#111827" Margin="0,8,0,0" />
+                    </Grid>
+                    </ScrollViewer>
+            <Border Grid.Row="1" Grid.Column="2" Background="White" BorderBrush="{StaticResource PanelBorder}" BorderThickness="0,0,1,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+
+
+                    <syncfusion:SfDataGrid x:Name="ResultsGrid"
+                                           Grid.Row="1"
+                                           AutoGenerateColumns="False"
+                                           AllowEditing="False"
+                                           AllowFiltering="True"
+                                           AllowResizingColumns="True"
+                                           AllowSorting="True"
+                                           ColumnSizer="Star"
+                                           FrozenColumnCount="0"
+                                           FontSize="14"
+                                           HeaderRowHeight="38"
+                                           RowHeight="36"
+                                           SelectionMode="Extended"
+                                           NavigationMode="Row"
+                                           ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                           PreviewMouseRightButtonDown="ResultsGrid_PreviewMouseRightButtonDown"
+                                           SelectionChanged="ResultsGrid_SelectionChanged"
+                                           FilterChanged="ResultsGrid_FilterChanged">
+                        <syncfusion:SfDataGrid.ContextMenu>
+                            <ContextMenu x:Name="ResultsContextMenu" Opened="ResultsContextMenu_Opened">
+                                <MenuItem x:Name="AddLabelMenuItem" Header="Add label" />
+                                <MenuItem x:Name="CommentsMenuItem" Header="Comments..." Click="CommentsMenu_Click" />
+                                <Separator />
+                                <MenuItem Header="Manage labels..." Click="ManageLabelsMenu_Click" />
+                            </ContextMenu>
+                        </syncfusion:SfDataGrid.ContextMenu>
+                    </syncfusion:SfDataGrid>
+                    <StackPanel x:Name="ResultsPager" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="12,6">
+                        <Button x:Name="PreviousPageButton" Content="&#x2190;" ToolTip="Previous page" Width="36" Click="PreviousPage_Click" IsEnabled="False" />
+                        <TextBlock x:Name="PageStatusText" Text="0-0 of 0" VerticalAlignment="Center" Margin="12,0" />
+                        <Button x:Name="NextPageButton" Content="&#x2192;" ToolTip="Next page" Width="36" Click="NextPage_Click" IsEnabled="False" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+        <GridSplitter x:Name="NavigationSplitter" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Width="6"
+                      HorizontalAlignment="Stretch" Background="{StaticResource PanelBorder}"
+                      ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" ShowsPreview="True"
+                      ToolTip="Drag to resize navigation and results" />
+        <GridSplitter x:Name="DetailsSplitter" Grid.Row="1" Grid.Column="3" Width="6" HorizontalAlignment="Stretch"
+                      Background="{StaticResource PanelBorder}" ResizeDirection="Columns" ResizeBehavior="PreviousAndNext"
+                      ShowsPreview="True" ToolTip="Drag to resize details" />
+        <Border x:Name="DetailsPanel" Grid.Row="1" Grid.Column="4" Background="#FAFBFC" BorderBrush="{StaticResource PanelBorder}" BorderThickness="1,0,0,0">
+            <Grid>
+                <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+                <Grid Margin="14,8">
+                    <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                    <TextBlock Text="{x:Static local:UiText.Details}" FontSize="16" FontWeight="Bold" Foreground="#111827" VerticalAlignment="Center" />
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,6,0,0">
+                        <Button x:Name="CopyDetailsButton" Content="{x:Static local:UiText.CopyDetails}" IsEnabled="False" Click="CopyDetails_Click" />
+                        <Button x:Name="ToggleDetailsButton" Content="{x:Static local:UiText.HideDetails}" Margin="8,0,0,0" Click="ToggleDetails_Click" />
+                    </StackPanel>
+                </Grid>
+                <RichTextBox x:Name="DetailsBody" Grid.Row="1" IsReadOnly="True" IsReadOnlyCaretVisible="True"
+                             BorderThickness="0" Background="Transparent" Foreground="#111827"
+                             Padding="14,0,14,12" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
+                             ToolTip="Select text across fields. Ctrl+A selects all details; Ctrl+C copies the selection." />
+            </Grid>
+        </Border>
+
+        </Grid>
+
+        <Border Grid.Row="1" Background="{StaticResource PrismBlueDark}">
+            <Grid Margin="10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="StatusTextBlock" Text="{Binding StatusText}" ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}" TextTrimming="CharacterEllipsis" Margin="0,0,14,0" Foreground="White" VerticalAlignment="Center" />
+                <TextBlock x:Name="RunStateText" Grid.Column="1" Text="{x:Static local:UiText.Ready}" Foreground="White" VerticalAlignment="Center" />
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

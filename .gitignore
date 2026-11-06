@@ -1,7 +1,25 @@
-# Documentation only. Publishing software requires a separate explicit decision.
 *
 !*/
-!*.md
+!README.md
+!README.es.md
+!LICENSE
+!THIRD-PARTY-NOTICES.json
 !.gitignore
 !.gitattributes
+!Prism.sln
+!Prism.Core/**/*.cs
+!Prism.Core/**/*.csproj
+!Prism.Wpf/**/*.cs
+!Prism.Wpf/**/*.xaml
+!Prism.Wpf/**/*.csproj
+!Prism.Wpf/Assets/*.ico
+!Prism.Wpf/Assets/*.png
+!Prism.Cli/**/*.cs
+!Prism.Cli/**/*.csproj
+!Prism/NativeLibs/win-x64/*.dll
 !assets/screenshots/*.png
+!licenses/**
+**/bin/
+**/obj/
+**/*_wpftmp*
+syncfusion-license.txt

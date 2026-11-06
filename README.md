@@ -10,8 +10,10 @@ Windows systems**. Review records in one workspace, follow their timestamps and
 sources, and organize findings with colored labels and comments. Cases are stored
 in SQLite `.pri` files.
 
-> **Private preview · Version 1.0 preparation.** This repository currently contains
-> documentation and screenshots. Software downloads are not published yet.
+> **Private preview · Version 1.0 preparation.** This repository contains the
+> README, Prism source code and prepared binaries. It remains private during review.
+
+**Windows package:** [Releases](https://github.com/gustavoparedes/Prism/releases). Keep the complete extracted application folder together.
 
 ![Prism — All Artifacts](assets/screenshots/02-all-artifacts.png)
 
@@ -44,8 +46,8 @@ in SQLite `.pri` files.
 | Persistence and System | Autorun, services, scheduled tasks, PowerShell history, installed software |
 | System Profile | OS properties, identity, accounts, profiles, time-zone configuration and device inventory |
 
-See the [artifact catalog](docs/en/artifacts.md) for the supported scope and
-interpretation limits.
+Coverage depends on the artifact format and evidence available; an extracted
+record must be interpreted with its timestamp meaning and original source.
 
 ## Getting started
 
@@ -116,6 +118,9 @@ device and configuration properties. Each record keeps its evidence source.
 
 ### Search across artifacts
 
+Click **From** or **To** to open the calendar and choose a date, hour, minute
+and second. Confirming enables the time filter; Cancel leaves the boundary unchanged.
+
 Search by keyword or regular expression, with optional time and label filters.
 Search results are combined across artifact families. Select a result to review
 its extracted fields and matching text in Details.
@@ -185,22 +190,23 @@ each processing run.
 ```
 
 Run live acquisition from an elevated terminal. The available kinds are `auto`,
-`e01`, `ad1`, `folder` and `live`. Read the [getting-started guide](docs/en/getting-started.md)
-and [evidence-source guide](docs/en/evidence-sources.md) for requirements and limits.
+`e01`, `ad1`, `folder` and `live`. Preserve original evidence separately from the extracted case.
 
-## Documentation
+## Build from source
 
-| Topic | English | Español |
-|---|---|---|
-| Visual tour | [Explore the interface](docs/en/visual-tour.md) | [Recorrido visual](docs/es/visual-tour.md) |
-| Getting started | [Guide](docs/en/getting-started.md) | [Guía](docs/es/getting-started.md) |
-| Evidence sources | [Sources](docs/en/evidence-sources.md) | [Fuentes](docs/es/evidence-sources.md) |
-| Artifact coverage | [Catalog](docs/en/artifacts.md) | [Catálogo](docs/es/artifacts.md) |
-| Reviewing cases | [Workflow](docs/en/reviewing-cases.md) | [Flujo de revisión](docs/es/reviewing-cases.md) |
-| Timestamps | [Time handling](docs/en/timestamps.md) | [Tratamiento temporal](docs/es/timestamps.md) |
-| Validation and limits | [Validation](docs/en/validation.md) | [Validación](docs/es/validation.md) |
-| Version 1.0 notes | [Release notes](docs/en/release-notes.md) | [Notas de versión](docs/es/release-notes.md) |
-| Reporting problems | [Reporting guide](docs/en/reporting-problems.md) | [Cómo reportar](docs/es/reporting-problems.md) |
+Use the .NET 8 SDK or a compatible newer SDK on Windows.
 
-The case contains extracted results and annotations; it does not replace the
-original evidence. Preserve source evidence separately for independent review.
+```powershell
+dotnet restore Prism.sln
+dotnet build Prism.sln -c Release
+dotnet publish Prism.Wpf/Prism.Wpf.csproj -c Release -r win-x64 --self-contained true -o publish/UI
+dotnet publish Prism.Cli/Prism.Cli.csproj -c Release -r win-x64 --self-contained true -o publish/CLI
+```
+
+The UI uses Syncfusion controls. For your own builds, register an appropriate
+license through `PRISM_SYNCFUSION_LICENSE_KEY` or an ignored local
+`syncfusion-license.txt` file. No activation file is included in the repository.
+
+Prism is distributed under the [MIT license](LICENSE). Dependency licenses and
+notices are retained in [licenses](licenses) and
+[THIRD-PARTY-NOTICES.json](THIRD-PARTY-NOTICES.json).

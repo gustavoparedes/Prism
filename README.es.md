@@ -11,7 +11,9 @@ y su procedencia, y organizar hallazgos con labels de color y comentarios. Los
 casos se guardan en archivos SQLite `.pri`.
 
 > **Vista previa privada · Preparación de la versión 1.0.** Este repositorio contiene
-> documentación y capturas. Las descargas de la aplicación todavía no están publicadas.
+> el README, los fuentes de Prism y los binarios preparados. Sigue privado durante la revisión.
+
+**Paquete para Windows:** [Releases](https://github.com/gustavoparedes/Prism/releases). Conserva completa la carpeta extraída de la aplicación.
 
 ![Prism — All Artifacts](assets/screenshots/02-all-artifacts.png)
 
@@ -44,8 +46,8 @@ casos se guardan en archivos SQLite `.pri`.
 | Persistence and System | Autorun, servicios, tareas programadas, historial PowerShell, software instalado |
 | System Profile | Propiedades del SO, identidad, cuentas, perfiles, configuración horaria e inventario de dispositivos |
 
-Consulta el [catálogo de artefactos](docs/es/artifacts.md) para conocer el alcance
-compatible y los límites de interpretación.
+La cobertura depende del formato del artefacto y de la evidencia disponible.
+Interpreta cada registro junto con el significado de su timestamp y su fuente.
 
 ## Primeros pasos
 
@@ -118,6 +120,9 @@ cuentas, software, dispositivos y configuración. Cada registro conserva su fuen
 
 ### Buscar entre los artefactos
 
+Pulsa **From** o **To** para abrir el calendario y elegir fecha, hora, minuto
+y segundo. Confirmar activa el filtro temporal; Cancelar conserva el valor anterior.
+
 Busca por palabra clave o expresión regular, combinándolas con filtros de tiempo
 y labels. Los resultados se reúnen entre las distintas familias de artefactos.
 Selecciona uno para revisar sus campos y las coincidencias resaltadas en Details.
@@ -189,22 +194,23 @@ procesamiento.
 ```
 
 Para live, abre el terminal con privilegios de administrador. Los tipos disponibles
-son `auto`, `e01`, `ad1`, `folder` y `live`. Consulta [primeros pasos](docs/es/getting-started.md)
-y [fuentes de evidencia](docs/es/evidence-sources.md) para los requisitos y límites.
+son `auto`, `e01`, `ad1`, `folder` y `live`. Conserva la evidencia original por separado del caso extraído.
 
-## Documentación
+## Compilar los fuentes
 
-| Tema | Español | English |
-|---|---|---|
-| Recorrido visual | [Explorar la interfaz](docs/es/visual-tour.md) | [Visual tour](docs/en/visual-tour.md) |
-| Primeros pasos | [Guía](docs/es/getting-started.md) | [Guide](docs/en/getting-started.md) |
-| Fuentes de evidencia | [Fuentes](docs/es/evidence-sources.md) | [Sources](docs/en/evidence-sources.md) |
-| Cobertura de artefactos | [Catálogo](docs/es/artifacts.md) | [Catalog](docs/en/artifacts.md) |
-| Revisión de casos | [Flujo de revisión](docs/es/reviewing-cases.md) | [Workflow](docs/en/reviewing-cases.md) |
-| Timestamps | [Tratamiento temporal](docs/es/timestamps.md) | [Time handling](docs/en/timestamps.md) |
-| Validación y límites | [Validación](docs/es/validation.md) | [Validation](docs/en/validation.md) |
-| Notas de la versión 1.0 | [Notas](docs/es/release-notes.md) | [Release notes](docs/en/release-notes.md) |
-| Reportar problemas | [Cómo reportar](docs/es/reporting-problems.md) | [Reporting guide](docs/en/reporting-problems.md) |
+Usa el SDK de .NET 8 o un SDK posterior compatible en Windows.
 
-El caso contiene resultados extraídos y anotaciones; no sustituye la evidencia
-original. Conserva las fuentes por separado para permitir una revisión independiente.
+```powershell
+dotnet restore Prism.sln
+dotnet build Prism.sln -c Release
+dotnet publish Prism.Wpf/Prism.Wpf.csproj -c Release -r win-x64 --self-contained true -o publish/UI
+dotnet publish Prism.Cli/Prism.Cli.csproj -c Release -r win-x64 --self-contained true -o publish/CLI
+```
+
+La UI utiliza controles Syncfusion. Para tus propias compilaciones, registra una
+licencia apropiada con `PRISM_SYNCFUSION_LICENSE_KEY` o un archivo local
+`syncfusion-license.txt`, excluido de Git. El repositorio no incluye archivos de activación.
+
+Prism se distribuye bajo la [licencia MIT](LICENSE). Las licencias y los avisos
+de las dependencias se conservan en [licenses](licenses) y
+[THIRD-PARTY-NOTICES.json](THIRD-PARTY-NOTICES.json).
