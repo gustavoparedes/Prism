@@ -228,3 +228,5 @@ Prism stands on the shoulders of giants. We thank the authors and maintainers wh
 - **NIST and the forensic community**, for public test evidence, format documentation, research and shared knowledge that help us validate and improve Prism.
 
 Our thanks also go to everyone who tests Prism, reports problems and helps improve the tool. The complete dependency notices and licenses are available in [THIRD-PARTY-NOTICES.json](THIRD-PARTY-NOTICES.json) and [licenses](licenses).
+
+To my family, to my children, and to everyone who makes my life a little more bearable: thank you.

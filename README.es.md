@@ -233,3 +233,5 @@ Prism se apoya en hombros de gigantes. Agradecemos a quienes comparten su trabaj
 - **NIST y la comunidad forense**, por las evidencias públicas de prueba, la documentación de formatos, la investigación y el conocimiento compartido que ayudan a validar y mejorar Prism.
 
 Gracias también a quienes prueban Prism, reportan problemas y ayudan a mejorar la herramienta. Los avisos y las licencias de todas las dependencias están disponibles en [THIRD-PARTY-NOTICES.json](THIRD-PARTY-NOTICES.json) y [licenses](licenses).
+
+A mi familia, a mis hijos y a todas las personas que hacen de mi vida algo más soportable: gracias.
