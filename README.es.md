@@ -49,10 +49,14 @@ Interpreta cada registro junto con el significado de su timestamp y su fuente.
 
 ## Primeros pasos
 
-Ejecuta Prism desde USB o una carpeta compartida de red y guarda el caso en un
-destino externo para reducir las escrituras sobre el sistema examinado. La ejecución
-en vivo sigue dejando huellas del SO y puede requerir copias temporales de hives
-bloqueados; ser portable no significa una huella nula.
+Para reducir la huella durante un análisis live, ejecuta Prism desde USB y guarda
+el caso `.pri` en esa USB, o ejecútalo desde una carpeta compartida de red y guarda
+el caso en ese compartido. Evita guardar el caso en los discos internos del sistema
+examinado. Las copias temporales de hives bloqueados se crean junto al `.pri`, en
+una carpeta `<nombre-del-caso>.live`, y normalmente se eliminan al terminar el
+procesamiento. Su ubicación depende del destino del caso, no de la ubicación del
+ejecutable. Windows puede registrar la ejecución y la actividad asociada; ser
+portable no significa una huella nula.
 
 Conserva completa la carpeta portable y abre `Prism.exe`. Para adquisición
 live, ejecútalo con privilegios de administrador. El recorrido presenta **19

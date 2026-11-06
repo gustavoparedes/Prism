@@ -49,10 +49,13 @@ record must be interpreted with its timestamp meaning and original source.
 
 ## Getting started
 
-Run Prism directly from a USB drive or network share and save the case to an
-external destination to reduce writes to the examined system. Live execution
-still leaves operating-system traces and may require temporary copies of blocked
-registry hives; portable execution does not mean zero footprint.
+For a reduced footprint during live analysis, run Prism from a USB drive and save
+its `.pri` case to that USB drive, or run it from a network share and save the case
+to that share. Avoid saving the case on the examined system's internal drives.
+Temporary copies of blocked registry hives are created alongside the `.pri`, in a
+`<case-name>.live` folder, and are normally deleted after processing. Their location
+follows the case destination, not the executable location. Windows can still
+record execution and related activity; portable execution does not mean zero footprint.
 
 Keep the complete portable application folder together and start `Prism.exe`.
 Use an elevated process for live acquisition. The following walkthrough shows
