@@ -29,8 +29,9 @@ casos se guardan en archivos SQLite `.pri`.
 - **Acceso directo a la evidencia:** lee E01, AD1 y carpetas directamente. En live,
   intenta primero la lectura normal y copia temporalmente solo hives autorizados
   bloqueados, sin crear instantáneas del SO.
-- **UI y CLI portables:** la carpeta autocontenida para Windows 10/11 x64 permite
-  revisión interactiva y procesamiento automatizado.
+- **UI y CLI portables:** ejecuta la aplicación autocontenida para Windows 10/11 x64
+  directamente desde USB o una carpeta compartida de red, sin instalación. Permite
+  revisión interactiva y procesamiento automatizado con menor huella de despliegue.
 
 ## Artefactos de Windows
 
@@ -47,6 +48,11 @@ La cobertura depende del formato del artefacto y de la evidencia disponible.
 Interpreta cada registro junto con el significado de su timestamp y su fuente.
 
 ## Primeros pasos
+
+Ejecuta Prism desde USB o una carpeta compartida de red y guarda el caso en un
+destino externo para reducir las escrituras sobre el sistema examinado. La ejecución
+en vivo sigue dejando huellas del SO y puede requerir copias temporales de hives
+bloqueados; ser portable no significa una huella nula.
 
 Conserva completa la carpeta portable y abre `Prism.exe`. Para adquisición
 live, ejecútalo con privilegios de administrador. El recorrido presenta **19

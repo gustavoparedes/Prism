@@ -29,8 +29,9 @@ in SQLite `.pri` files.
 - **Direct evidence access:** read E01, AD1 and folder sources in place. Live mode
   tries ordinary reads first and temporarily copies only authorized blocked
   registry hives, without operating-system snapshots.
-- **Portable UI and CLI:** a self-contained Windows 10/11 x64 application folder
-  supports interactive review and automated processing.
+- **Portable UI and CLI:** run the self-contained Windows 10/11 x64 application
+  directly from a USB drive or network share, without installation. Supports
+  interactive review and automated processing with a reduced deployment footprint.
 
 ## Windows artifacts
 
@@ -47,6 +48,11 @@ Coverage depends on the artifact format and evidence available; an extracted
 record must be interpreted with its timestamp meaning and original source.
 
 ## Getting started
+
+Run Prism directly from a USB drive or network share and save the case to an
+external destination to reduce writes to the examined system. Live execution
+still leaves operating-system traces and may require temporary copies of blocked
+registry hives; portable execution does not mean zero footprint.
 
 Keep the complete portable application folder together and start `Prism.exe`.
 Use an elevated process for live acquisition. The following walkthrough shows
