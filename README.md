@@ -228,4 +228,3 @@ In developing Prism, I stand on the shoulders of giants. I thank the authors and
 - **NIST and the forensic community**, for public test evidence, format documentation, research and shared knowledge that help me validate and improve Prism.
 
 I also thank everyone who tests Prism, reports problems and helps me improve the tool. The complete dependency notices and licenses are available in [THIRD-PARTY-NOTICES.json](THIRD-PARTY-NOTICES.json) and [licenses](licenses).
-
