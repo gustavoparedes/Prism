@@ -218,7 +218,7 @@ notices are retained in [licenses](licenses) and
 [THIRD-PARTY-NOTICES.json](THIRD-PARTY-NOTICES.json).
 ## Acknowledgements
 
-In developing Prism, I stand on the shoulders of giants. I thank the authors and maintainers who share their work, document Windows artifacts and make forensic research reproducible.
+I thank the authors and maintainers who share their work, document Windows artifacts and make forensic research reproducible.
 
 - **Eric Zimmerman and contributors**, for Registry, Prefetch, JumpList, Lnk, AppCompatCache and their supporting libraries. Their work provides essential building blocks for reading Windows forensic artifacts.
 - **The DiscUtils contributors**, for their file-system libraries, including NTFS support.
