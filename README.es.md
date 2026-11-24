@@ -223,7 +223,7 @@ de las dependencias se conservan en [licenses](licenses) y
 [THIRD-PARTY-NOTICES.json](THIRD-PARTY-NOTICES.json).
 ## Agradecimientos
 
-Al desarrollar Prism, me apoyo en hombros de gigantes. Agradezco a quienes comparten su trabajo, documentan los artefactos de Windows y hacen reproducible la investigación forense.
+Agradezco a quienes comparten su trabajo, documentan los artefactos de Windows y hacen reproducible la investigación forense.
 
 - **Eric Zimmerman y los colaboradores de sus proyectos**, por Registry, Prefetch, JumpList, Lnk, AppCompatCache y sus bibliotecas de apoyo. Su trabajo aporta componentes fundamentales para leer artefactos forenses de Windows.
 - **Los colaboradores de DiscUtils**, por sus bibliotecas de sistemas de archivos, incluido el soporte de NTFS.
